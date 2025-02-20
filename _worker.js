@@ -1,4 +1,5 @@
-export const onRequest: PagesFunction<Env> = async (context) => {
+// _worker.js
+export async function onRequest(context) {
   const { request } = context;
   
   // Cấu hình
@@ -34,7 +35,6 @@ export const onRequest: PagesFunction<Env> = async (context) => {
     });
 
     const responseHeaders = new Headers(response.headers);
-    // Security headers
     responseHeaders.set('Access-Control-Allow-Origin', '*');
     responseHeaders.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
     responseHeaders.set('Access-Control-Allow-Headers', '*');

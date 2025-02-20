@@ -19,7 +19,7 @@ export async function onRequest(context) {
     const response = await fetch(url.toString(), {
       method: request.method,
       headers: newHeaders,
-      body: request.body,
+      body: request.method === 'GET' ? null : request.body, // Chỉ gửi body nếu không phải GET
       redirect: 'manual',
     });
 
